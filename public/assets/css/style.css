@@ -1,0 +1,7 @@
+body{
+    background-color: #f6f8fa !important;
+}
+form{
+    margin: 0 auto;
+    display: table;
+}
