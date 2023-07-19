@@ -53,3 +53,7 @@ function getSession($key){
         unset($_SESSION[$key]);
     }
 }
+
+function createUser($username,  $meail, $password){
+    return AR_User::createUser($username,  $meail, $password);
+}

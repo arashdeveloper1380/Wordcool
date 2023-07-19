@@ -37,9 +37,9 @@ $router->post('/save', function() {
     $homeController->save();
 });
 
-$router->get('/wp-admin/test', function() {
+$router->get('/create-user', function() {
     $homeController = new HomeController();
-    $homeController->test();
+    $homeController->createUser();
 });
 
 

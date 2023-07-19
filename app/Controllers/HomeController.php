@@ -3,7 +3,6 @@ namespace Controllers;
 
 include ARASH_DIR . 'init.php';
 include ARASH_DIR . 'app/Models/Sample.php';
-
 use Sample;
 use Controller;
 use Redirect;
@@ -11,7 +10,8 @@ use Request;
 use View;
 use ValidateSession;
 use Session;
-use Logg;
+use AR_User;
+
 
 class HomeController extends Controller{
 
@@ -48,8 +48,9 @@ class HomeController extends Controller{
         }
     }
 
-    public function test(){
-        dd("this is test on wp-admin");
+    public function createUser(){
+        AR_User::createUser('ali','ali@gmail.com','123');
+        redirectUrl(route('/'));
     }
 
     // public function store(){
