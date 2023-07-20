@@ -10,4 +10,6 @@ interface UserInterface{
 
     public static function deleteUser($user_id);
 
+    public static function addUserMeta($user_id, $meta_key, $meta_value);
+
 }

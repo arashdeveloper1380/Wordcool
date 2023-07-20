@@ -50,4 +50,8 @@ class AR_User implements UserInterface{
         }
     }
 
+    public static function addUserMeta($user_id, $meta_key, $meta_value){
+        add_user_meta($user_id, $meta_key, $meta_value);
+    }
+
 }
