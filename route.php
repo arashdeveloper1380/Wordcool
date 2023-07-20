@@ -27,20 +27,34 @@ $router = new Router('/arash-framework');
 //     $homeController->index($name);
 // });
 
-$router->get('/', function() {
+$router->get('/', function () {
     $homeController = new HomeController();
     $homeController->index();
 });
 
-$router->post('/save', function() {
+$router->post('/save', function () {
     $homeController = new HomeController();
     $homeController->save();
 });
 
-$router->get('/create-user', function() {
+$router->get('/create-user', function () {
     $homeController = new HomeController();
     $homeController->createUser();
 });
 
+$router->get('/insert-user', function (){
+    $homeController = new HomeController();
+    $homeController->insertUser();
+});
+
+$router->get('/update-user/:id', function ($id){
+    $homeController = new HomeController();
+    $homeController->updateUser($id);
+});
+
+$router->get('/delete-user/:id', function ($id){
+    $homeController = new HomeController();
+    $homeController->deleteUser($id);
+});
 
 $router->dispatch();

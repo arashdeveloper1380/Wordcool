@@ -33,7 +33,7 @@ class HomeController extends Controller{
 
         if(!empty($errors)){
             $errors = ValidateSession::setErrors($errors);
-            Redirect::back();
+            Redirect::back(); // or redirectBack()
         } else {
             $name = $request->post('name');
             $phone = $request->post('phone');
@@ -42,6 +42,7 @@ class HomeController extends Controller{
                 'name'  => $name,
                 'phone' => $phone
             ]);
+
             $session->set('success', 'created successful');
             redirectBack(); // or Redirect::back()
             
@@ -53,10 +54,44 @@ class HomeController extends Controller{
         redirectUrl(route('/'));
     }
 
-    // public function store(){
-    //     $request = new Request();
-    //     $name = $request->get('name');
-    //     $id = $request->get('id');
-    //     echo $name . ' ' . $id;
-    // }
+    public function insertUser(){
+        $insertUser = AR_User::insertUser([
+            'user_login' => 'arash',
+            'user_email' => 'arash@example.com',
+            'user_pass'  => '123456789',
+            'first_name' => 'آرش',
+            'last_name'  => 'نریمانی',
+        ]);
+
+        if($insertUser){
+            $session = Session::getInstance();
+            $session->set('success', 'User inserted successful');
+            redirectUrl(route('/'));
+        }
+    }
+
+    public function updateUser($id){
+        $update_user = AR_User::updateUser($id, [
+            'user_login' => 'mehdi',
+            'user_email' => 'mehdi@example.com',
+            'user_pass'  => '123456789',
+            'first_name' => 'مهدی',
+            'last_name'  => 'قیاسی',
+        ]);
+
+        if($update_user){
+            $session = Session::getInstance();
+            $session->set('success', 'User updated successful');
+            redirectUrl(route('/'));
+        }
+    }
+
+    public function deleteUser($id){
+        $delete_user = AR_User::deleteUser($id);
+        if($delete_user){
+            $session = Session::getInstance();
+            $session->set('success', 'User deleted successful');
+            redirectUrl(route('/'));
+        }
+    }
 }
