@@ -23,7 +23,8 @@ class AR_User implements UserInterface{
         if (!is_wp_error($user_id)) {
             return $user_id;
         } else {
-            return $user_id->get_error_message();
+            $error = new WP_Error('inser_error', 'There was an error inserted the user.');
+            return $error->get_error_message();
         }
     }
 
@@ -35,7 +36,8 @@ class AR_User implements UserInterface{
         if(!is_wp_error($updated_user_id)){
             return true;
         }else{
-            return $updated_user_id->intl_get_error_message();
+            $error = new WP_Error('update_error', 'There was an error updating the user.');
+            echo $error->get_error_message();
         }
     }
 
@@ -43,7 +45,8 @@ class AR_User implements UserInterface{
         if (wp_delete_user($user_id)) {
             echo 'User Deleted Successful';
         } else {
-            echo $user_id->get_error_message();
+            $error = new WP_Error('delete_error', 'There was an error deleting the user.');
+            echo $error->get_error_message();
         }
     }
 
