@@ -67,4 +67,20 @@ $router->get('/costom-login', function (){
     $homeController->costomLogin();
 });
 
+$router->get('/user-count', function (){
+    $homeController = new HomeController();
+    $homeController->userCount();
+});
+
+$router->get('/count-user-posts', function (){
+    $homeController = new HomeController();
+    $homeController->countUserPosts();
+});
+
+$router->get('/get-current-user', function (){
+    $homeController = new HomeController();
+    $homeController->getCurrentUser();
+});
+
+
 $router->dispatch();

@@ -97,4 +97,55 @@ class WCL_User implements UserInterface{
         wp_redirect( home_url() );
         exit;
     }
+
+    public static function getUserCount() {
+        $user_counts = count_users();
+        $role_counts = array();
+
+        foreach ( $user_counts['avail_roles'] as $role => $count ) {
+            $role_counts[ $role ] = $count;
+        }
+        
+        $role_counts['total'] = $user_counts['total_users'];
+        return $role_counts;
+    }
+
+    public static function countUserPosts($user_id, $post_type = 'post', $public_only = true){
+        $post_count = count_user_posts($user_id, $post_type, $public_only);
+        return $post_count;
+    }
+
+    public static function countManyUsersPosts($user_ids = [], $post_type = 'post', $public_only = true){
+        $total_count = 0;
+
+        foreach ($user_ids as $id){
+            $post_count = self::countUserPosts($id, $post_type, $public_only);
+            $total_count += $total_count;
+        }
+
+        return $total_count;
+    }
+
+    public static function emailExists($email){
+        $email_exists = email_exists($email);
+        return (bool) $email_exists;
+    }
+
+    public static function getCurrentUser(){
+        $current_user = wp_get_current_user();
+        return $current_user;
+    }
+
+    public static function getCurrentUserId() {
+        $user_id = get_current_user_id();
+        return $user_id;
+    }
+
+    public static function get_user_by_field( $field, $value ) {
+        // Get the user by the specified field and value
+        $user = get_user_by( $field, $value );
+    
+        // Return the user object or false if no user was found
+        return $user ? $user : false;
+    }
 }

@@ -24,8 +24,20 @@ interface UserInterface{
 
     public static function customLoginForm($args);
 
-    public static function login_user($username, $password);
+    public static function loginUser($username, $password);
 
     public static function logoutUser();
+
+    public static function getUserCount();
+
+    public static function countUserPosts($user_id, $post_type, $public_only);
+
+    public static function countManyUsersPosts($user_ids, $post_type, $public_only);
+
+    public static function emailExists($email);
+
+    public static function getCurrentUser();
+
+    public static function getCurrentUserId();
 
 }

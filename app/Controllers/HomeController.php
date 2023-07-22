@@ -129,4 +129,25 @@ class HomeController extends Controller{
             'value_remember' => false
         ]);
     }
+
+    public function userCount(){
+        $users = WCL_User::getUserCount();
+        dd($users);
+    }
+
+    public function countUserPosts(){
+        $count_user_posts = WCL_User::countUserPosts(1, 'page');
+        dd($count_user_posts);
+    }
+
+    public function countManyUsersPosts(){
+        $user_ids = [1];
+        $countManyUsersPosts = WCL_User::countManyUsersPosts($user_ids);
+        dd($countManyUsersPosts);
+    }
+
+    public function getCurrentUser(){
+        $currenmt_user = WCL_User::getCurrentUser();
+        dd($currenmt_user);
+    }
 }
