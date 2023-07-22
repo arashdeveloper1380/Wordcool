@@ -77,4 +77,24 @@ class WCL_User implements UserInterface{
     public static function customLoginForm($args){
         wp_login_form($args);
     }
+
+    public static function loginUser($username, $password) {
+        $user_credentials = array(
+            'user_login'    => $username,
+            'user_password' => $password,
+            'remember'      => true
+        );
+        $user_signon = wp_signon( $user_credentials, false );
+        if ( is_wp_error( $user_signon ) ) {
+            return $user_signon;
+        } else {
+            return true;
+        }
+    }
+
+    public static function logoutUser() {
+        wp_logout();
+        wp_redirect( home_url() );
+        exit;
+    }
 }

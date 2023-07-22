@@ -24,4 +24,8 @@ interface UserInterface{
 
     public static function customLoginForm($args);
 
+    public static function login_user($username, $password);
+
+    public static function logoutUser();
+
 }
