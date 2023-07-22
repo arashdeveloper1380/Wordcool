@@ -4,7 +4,7 @@ require_once ABSPATH . 'wp-admin/includes/user.php';
 
 include "UserInterface.php";
 
-class AR_User implements UserInterface{
+class WCL_User implements UserInterface{
 
     public static function createUser($username, $password, $email){
         $password = wp_hash_password($password);
@@ -50,8 +50,31 @@ class AR_User implements UserInterface{
         }
     }
 
-    public static function addUserMeta($user_id, $meta_key, $meta_value){
+    public static function addUserMeta($user_id, $meta_key, $meta_value) {
         add_user_meta($user_id, $meta_key, $meta_value);
     }
 
+    public static function getUserMeta($user_id, $meta_key) {
+        return get_user_meta($user_id, $meta_key, true);
+    }
+
+    public static function updateUserMeta($user_id, $meta_key, $meta_value) {
+        update_user_meta($user_id, $meta_key, $meta_value);
+    }
+
+    public static function getTheAuthorMeta($meta_key, $user_id) {
+        return get_the_author_meta($meta_key, $user_id);
+    }
+    
+    public static function deleteUserMeta($user_id, $meta_key) {
+        delete_user_meta($user_id, $meta_key);
+    }
+
+    public static function isUserLoggedIn(){
+        return is_user_logged_in();
+    }
+
+    public static function customLoginForm($args){
+        wp_login_form($args);
+    }
 }

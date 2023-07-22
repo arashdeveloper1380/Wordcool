@@ -57,4 +57,14 @@ $router->get('/delete-user/:id', function ($id){
     $homeController->deleteUser($id);
 });
 
+$router->get('/meta-user', function (){
+    $homeController = new HomeController();
+    $homeController->metaUser();
+});
+
+$router->get('/costom-login', function (){
+    $homeController = new HomeController();
+    $homeController->costomLogin();
+});
+
 $router->dispatch();

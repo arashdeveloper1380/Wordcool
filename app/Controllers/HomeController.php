@@ -3,6 +3,9 @@ namespace Controllers;
 
 include ARASH_DIR . 'init.php';
 include ARASH_DIR . 'app/Models/Sample.php';
+require_once ABSPATH . 'wp-includes/pluggable.php';
+require_once ABSPATH . 'wp-admin/includes/user.php';
+
 use Sample;
 use Controller;
 use Redirect;
@@ -10,7 +13,7 @@ use Request;
 use View;
 use ValidateSession;
 use Session;
-use AR_User;
+use WCL_User;
 
 
 class HomeController extends Controller{
@@ -18,6 +21,7 @@ class HomeController extends Controller{
     public function index(){
         $samples = Sample::query()->orderByDesc('id','desc')->get();
         View::render('front.index',compact('samples'));
+        
     }
 
     public function save(){
@@ -50,12 +54,12 @@ class HomeController extends Controller{
     }
 
     public function createUser(){
-        AR_User::createUser('ali','ali@gmail.com','123');
+        WCL_User::createUser('ali','ali@gmail.com','123');
         redirectUrl(route('/'));
     }
 
     public function insertUser(){
-        $insertUser = AR_User::insertUser([
+        $insertUser = WCL_User::insertUser([
             'user_login' => 'arash',
             'user_email' => 'arash@example.com',
             'user_pass'  => '123456789',
@@ -71,7 +75,7 @@ class HomeController extends Controller{
     }
 
     public function updateUser($id){
-        $update_user = AR_User::updateUser($id, [
+        $update_user = WCL_User::updateUser($id, [
             'user_login' => 'mehdi',
             'user_email' => 'mehdi@example.com',
             'user_pass'  => '123456789',
@@ -87,11 +91,42 @@ class HomeController extends Controller{
     }
 
     public function deleteUser($id){
-        $delete_user = AR_User::deleteUser($id);
+        $delete_user = WCL_User::deleteUser($id);
         if($delete_user){
             $session = Session::getInstance();
             $session->set('success', 'User deleted successful');
             redirectUrl(route('/'));
         }
+    }
+
+    public function metaUser(){
+        // AR_User::updateUserMeta(1, 'job', 'developer');
+        // Redirect::url(route('/'));
+        // $job = WCL_User::getUserMeta(1, 'job');
+        // echo $job;
+        if(WCL_User::isUserLoggedIn()){
+            echo "login";
+        }else{
+            echo "not login";
+        }
+    }
+
+    public function costomLogin(){
+        WCL_User::customLoginForm([
+            'echo'           => true,
+            'redirect'       => site_url( $_SERVER['REQUEST_URI'] ),
+            'form_id'        => 'login-form',
+            'label_username' => __( 'نام کاربری' ),
+            'label_password' => __( 'رمز عبور' ),
+            'label_remember' => __( 'مرا به خاطر بسپار' ),
+            'label_log_in'   => __( 'ورود' ),
+            'id_username'    => 'user_login',
+            'id_password'    => 'user_pass',
+            'id_remember'    => 'rememberme',
+            'id_submit'      => 'wp-submit',
+            'remember'       => true,
+            'value_username' => '',
+            'value_remember' => false
+        ]);
     }
 }
