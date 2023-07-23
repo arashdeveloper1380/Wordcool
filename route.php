@@ -82,5 +82,10 @@ $router->get('/get-current-user', function (){
     $homeController->getCurrentUser();
 });
 
+$router->get('/get-userdata/:id', function ($id){
+    $homeController = new HomeController();
+    $homeController->getUserData($id);
+});
+
 
 $router->dispatch();

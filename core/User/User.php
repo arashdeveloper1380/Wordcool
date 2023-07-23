@@ -141,11 +141,31 @@ class WCL_User implements UserInterface{
         return $user_id;
     }
 
-    public static function get_user_by_field( $field, $value ) {
-        // Get the user by the specified field and value
+    public static function getUserByField( $field, $value ) {
         $user = get_user_by( $field, $value );
-    
-        // Return the user object or false if no user was found
         return $user ? $user : false;
+    }
+
+    public static function getUserData($user_id){
+        $user_data = get_userdata($user_id);
+        return $user_data;
+    }
+
+    public static function getUsers($args) {
+        // $args = [
+        //     'number' => $number,
+        //     'orderby' => 'registered',
+        //     'order' => 'DESC'
+        // ];
+        $users = get_users($args);
+        return $users;
+    }
+
+    public static function usernameExists($username){
+        if (username_exists($username)) {
+            echo true;
+        } else {
+            echo false;
+        }
     }
 }

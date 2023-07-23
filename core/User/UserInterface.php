@@ -40,4 +40,12 @@ interface UserInterface{
 
     public static function getCurrentUserId();
 
+    public static function getUserByField($field, $value);
+
+    public static function getUserData($user_id);
+
+    public static function getUsers($args);
+
+    public static function usernameExists($username);
+
 }

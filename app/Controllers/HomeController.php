@@ -150,4 +150,8 @@ class HomeController extends Controller{
         $currenmt_user = WCL_User::getCurrentUser();
         dd($currenmt_user);
     }
+
+    public function getUserData($id){
+        dd(WCL_User::getUserData($id));
+    }
 }
