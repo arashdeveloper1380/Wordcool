@@ -28,6 +28,7 @@ class Boot {
         self::migrations();
 
         include ARASH_DIR . "route.php";
+//        include ARASH_DIR . "world.php";
     }
 
     public function configDatabase(){
