@@ -2,7 +2,8 @@
 
 include ARASH_DIR . 'app/Controllers/HomeController.php';
 include ARASH_DIR . 'core/router.php';
-use Controllers\HomeController;
+
+use app\Controllers\HomeController;
 
 $router = new Router('/wordpress');
 

@@ -18,7 +18,7 @@ class WorldCommand {
             $context = "<?php
 namespace $namespace;
 include ARASH_DIR . 'init.php';
-use Controller;
+use app\Controllers\Controller;
 
 
 class $class extends Controller

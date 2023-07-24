@@ -1,5 +1,7 @@
 <?php
 
+namespace core;
+
 class Redirect {
 
     public static function url($url){

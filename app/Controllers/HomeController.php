@@ -1,14 +1,12 @@
 <?php
-namespace Controllers;
+namespace app\Controllers;
 
 include ARASH_DIR . 'init.php';
 include ARASH_DIR . 'app/Models/Sample.php';
-require_once ABSPATH . 'wp-includes/pluggable.php';
-require_once ABSPATH . 'wp-admin/includes/user.php';
 
-use Sample;
+use app\Models\Sample;
 use app\Controllers\Controller;
-use Redirect;
+use core\Redirect;
 use Request;
 use View;
 use ValidateSession;
