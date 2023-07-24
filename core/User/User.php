@@ -168,4 +168,9 @@ class WCL_User implements UserInterface{
             echo false;
         }
     }
+
+    public static function getAuthorPostUrl($author_id){
+        $author_posts_url = get_author_posts_url($author_id);
+        echo $author_posts_url;
+    }
 }

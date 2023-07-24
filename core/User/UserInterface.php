@@ -48,4 +48,6 @@ interface UserInterface{
 
     public static function usernameExists($username);
 
+    public static function getAuthorPostUrl($author_id);
+
 }
