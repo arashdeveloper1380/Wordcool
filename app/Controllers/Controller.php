@@ -1,5 +1,7 @@
 <?php
 
+namespace app\Controllers;
+
 class Controller {
 
     public static function headerSection($header = 'resources/front/layouts/header.php'){

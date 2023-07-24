@@ -1,11 +1,11 @@
 <?php
 
 function ar_header(){
-    Controller::headerSection();
+    app\Controllers\Controller::headerSection();
 }
 
 function ar_footer(){
-    Controller::footerSection();
+    app\Controllers\Controller::footerSection();
 }
 
 function ar_assets($type, $path){

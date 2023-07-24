@@ -7,7 +7,7 @@ require_once ABSPATH . 'wp-includes/pluggable.php';
 require_once ABSPATH . 'wp-admin/includes/user.php';
 
 use Sample;
-use Controller;
+use app\Controllers\Controller;
 use Redirect;
 use Request;
 use View;
