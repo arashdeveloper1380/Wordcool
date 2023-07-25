@@ -5,7 +5,7 @@ include ARASH_DIR . 'core/router.php';
 
 use app\Controllers\HomeController;
 
-$router = new Router('/wordpress');
+$router = new core\Router('/arash-framework');
 
 //  \?id=.*         =>      send Parametr [product?id=33]
 //  :id             =>      product/2

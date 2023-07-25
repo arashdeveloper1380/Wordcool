@@ -9,7 +9,7 @@ function ar_footer(){
 }
 
 function ar_assets($type, $path){
-    AssetLoader::load($type, $path);
+    core\AssetLoader::load($type, $path);
 }
 
 function dd($data){
@@ -24,15 +24,15 @@ function dd($data){
 }
 
 function errors(){
-    ValidateSession::showErrors();
+    core\ValidateSession::showErrors();
 }
 
 function redirectBack(){
-    Redirect::back();
+    core\Redirect::back();
 }
 
 function redirectUrl($url){
-    Redirect::url($url);
+    core\Redirect::url($url);
 }
 
 function route($route){
@@ -40,12 +40,12 @@ function route($route){
 }
 
 function setSession($key, $value){
-    $session = Session::getInstance();
+    $session = core\Session::getInstance();
     $session->set($key, $value);
 }
 
 function getSession($key){
-    $session = Session::getInstance();
+    $session = core\Session::getInstance();
 
     if ($session->get($key)) {
         $success = $session->get($key);

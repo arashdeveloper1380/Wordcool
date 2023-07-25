@@ -1,5 +1,7 @@
 <?php
 
+namespace core\User;
+
 interface UserInterface{
 
     public static function createUser($username, $password, $email);

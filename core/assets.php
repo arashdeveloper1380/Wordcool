@@ -1,4 +1,6 @@
 <?php
+namespace core;
+
 class AssetLoader {
 
     public static function load($type, $path){

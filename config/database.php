@@ -10,7 +10,7 @@ $capsule = new Capsule();
 $capsule->addConnection([
     'driver'    => 'mysql',
     'host'      => 'localhost',
-    'database'  => 'wordpress',
+    'database'  => 'plugin',
     'username'  => 'root',
     'password'  => '',
     'charset'   => 'utf8mb4',

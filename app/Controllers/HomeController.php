@@ -7,10 +7,10 @@ include ARASH_DIR . 'app/Models/Sample.php';
 use app\Models\Sample;
 use app\Controllers\Controller;
 use core\Redirect;
-use Request;
-use View;
-use ValidateSession;
-use Session;
+use core\Request;
+use core\View;
+use core\ValidateSession;
+use core\Session;
 use WCL_User;
 
 

@@ -1,8 +1,11 @@
 <?php
+namespace core\User;
+
 require_once ABSPATH . 'wp-includes/pluggable.php';
 require_once ABSPATH . 'wp-admin/includes/user.php';
-
 include "UserInterface.php";
+
+use core\User\UserInterface;
 
 class WCL_User implements UserInterface{
 

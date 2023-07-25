@@ -1,4 +1,6 @@
 <?php
+namespace core;
+
 include ARASH_DIR . 'app/inc/helpers.php';
 include ARASH_DIR . 'core/assets.php';
 
