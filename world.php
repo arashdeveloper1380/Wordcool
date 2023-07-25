@@ -75,6 +75,32 @@ class $class extends Controller
             if($fp)
                 echo "[*] " . $filename . " Created Successful!\n\n";
         }
+
+        if($this->command === 'make:model'){
+
+            $namespace = 'app\Models';
+            $class = ucwords($this->parameter);
+            $filename = $class . '.php';
+            echo $filename;
+
+            $context = "<?php
+namespace $namespace;
+
+use Illuminate\Database\Eloquent\Model;
+
+class $class extends Model
+{
+    //
+} ";
+            $path = __DIR__ . "/app/Models/" . $filename;
+
+            $fp = fopen($path,"w");
+            fwrite($fp,$context);
+            fclose($fp);
+            echo "\n\n";
+            if($fp)
+                echo "[*] " . $filename . " Created Successful!\n\n";
+        }
     }
 }
 
