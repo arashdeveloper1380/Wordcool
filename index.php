@@ -4,7 +4,7 @@
  * Plugin Name: Arash Framework
 */
 
-require_once 'vendor/autoload.php';
+require_once 'C:/xampp/htdocs/arash-framework/wp-content/plugins/Wordcool/vendor/autoload.php';
 
 class Boot {
 
