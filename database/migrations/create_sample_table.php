@@ -1,6 +1,6 @@
 <?php
 
-require_once ARASH_DIR . 'vendor/autoload.php';
+require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Database\Migrations\Migration;

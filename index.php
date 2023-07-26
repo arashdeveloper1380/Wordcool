@@ -4,7 +4,7 @@
  * Plugin Name: Arash Framework
 */
 
-require_once 'C:/xampp/htdocs/arash-framework/wp-content/plugins/Wordcool/vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 class Boot {
 
@@ -28,7 +28,7 @@ class Boot {
         self::migrations();
 
         include ARASH_DIR . "route.php";
-//        include ARASH_DIR . "world.php";
+//        include ARASH_DIR . "world";
     }
 
     public function configDatabase(){

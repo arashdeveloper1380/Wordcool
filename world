@@ -1,6 +1,7 @@
+#!/usr/bin/env php
 <?php
 
-require_once __DIR__ . '/vendor/autoload.php';
+include 'vendor/autoload.php';
 
 class WorldCommand {
     private $command;
@@ -110,10 +111,12 @@ class $class extends Model
             $table_name = "wp_{$class}";
             $filename = "create_{$class}_table.php";
             $table= '$table';
-
+            define('ROOT_DIR', $_SERVER['DOCUMENT_ROOT']);
             $context = "<?php
 
-require_once ARASH_DIR . 'vendor/autoload.php';
+
+include ROOT_DIR . 'vendor/autoload.php';
+include ROOT_DIR . 'config/database.php';
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Database\Migrations\Migration;
@@ -123,6 +126,7 @@ class $CreateTable extends Migration
     public function up()
     {
         Capsule::schema()->create('$table_name', function ($table)  {
+        
         });
     }
 
@@ -139,6 +143,7 @@ class $CreateTable extends Migration
             echo "\n\n";
             if($fp)
                 echo "[*] " . $filename . " Created Successful!\n\n";
+            echo 'add this code [define("ROOT_DIR", $_SERVER["DOCUMENT_ROOT"])]' . "\n\n";
         }
 
         if($this->command === 'migration'){
@@ -152,6 +157,8 @@ class $CreateTable extends Migration
                 include $table_name_exist;
 
                 (new $table_class())->up();
+
+                echo "[*] " . $table_name . " Migrate Successful!\n\n";
             }else{
                 echo "not found migration file";
             }
