@@ -88,5 +88,10 @@ $router->get('/get-userdata/:id', function ($id){
     $homeController->getUserData($id);
 });
 
+$router->get('/json', function (){
+    $homeController = new HomeController();
+    $homeController->jsonHanlde();
+});
+
 
 $router->dispatch();

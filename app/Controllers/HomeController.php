@@ -4,6 +4,7 @@ namespace app\Controllers;
 include ARASH_DIR . 'init.php';
 include ARASH_DIR . 'app/Models/Sample.php';
 
+use core\jsonQueryBuilder;
 use app\Models\Sample;
 use app\Controllers\Controller;
 use core\Redirect;
@@ -151,5 +152,15 @@ class HomeController extends Controller{
 
     public function getUserData($id){
         dd(WCL_User::getUserData($id));
+    }
+
+    public function jsonHanlde(){
+        $jsonHandle = new JsonQueryBuilder('app/Controllers/users.json');
+
+        $result = $jsonHandle->select(['name', 'age'])
+            ->from('books')
+            ->get();
+
+        dd($result);
     }
 }
