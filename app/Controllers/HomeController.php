@@ -19,7 +19,7 @@ class HomeController extends Controller{
 
     public function index(){
         $samples = Sample::query()->orderByDesc('id','desc')->get();
-        echo View::renderBlade('index',compact('samples'));
+        View::renderBlade('index',compact('samples'));
     }
 
     public function save(){

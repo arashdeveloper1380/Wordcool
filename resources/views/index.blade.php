@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<p style="text-align: center;">this is index page</p>
+<p style="text-align: center;">this is index blade page</p>
 
 <table id="table">
     <tr>
@@ -11,8 +11,8 @@
     <tbody>
     @foreach($samples as $value)
         <tr>
-            <td><?= $value->name ?></td>
-            <td><?= $value->phone ?></td>
+            <td>{{ $value->name }}</td>
+            <td>{{ $value->phone }}</td>
         </tr>
     @endforeach
     </tbody>

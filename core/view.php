@@ -36,7 +36,7 @@ class View
             $viewPaths = [ARASH_DIR . 'resources/views'];
             $fileSystem = new Filesystem;
             $viewFinder = new FileViewFinder($fileSystem, $viewPaths);
-            $bladeCompiler = new BladeCompiler($fileSystem, ARASH_DIR . 'cache/views');
+            $bladeCompiler = new BladeCompiler($fileSystem, ARASH_DIR . 'resources/cache/views');
             $resolver = new EngineResolver;
             $resolver->register('blade', function () use ($bladeCompiler) {
                 return new CompilerEngine($bladeCompiler);
@@ -44,6 +44,6 @@ class View
             self::$viewFactory = new Factory($resolver, $viewFinder, new \Illuminate\Events\Dispatcher);
         }
 
-        return self::$viewFactory->make($view, $data)->render();
+        echo self::$viewFactory->make($view, $data)->render();
     }
 }
