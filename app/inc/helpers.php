@@ -1,5 +1,7 @@
 <?php
 
+include ARASH_DIR . 'core/assets.php';
+
 function ar_header(){
     app\Controllers\Controller::headerSection();
 }

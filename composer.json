@@ -1,5 +1,6 @@
 {
     "require": {
-        "illuminate/database": "^10.15"
+        "illuminate/database": "^10.15",
+        "illuminate/view": "^10.16"
     }
 }
