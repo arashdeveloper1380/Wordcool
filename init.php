@@ -9,3 +9,4 @@ include ARASH_DIR . 'config/database.php';
 include ARASH_DIR . 'core/session.php';
 include ARASH_DIR . 'core/User/User.php';
 include ARASH_DIR . 'core/jsonQueryBuilder.php';
+include ARASH_DIR . 'core/AddMenuPage/AddMenuPage.php';

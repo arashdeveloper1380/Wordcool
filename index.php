@@ -11,6 +11,7 @@ class Boot {
     public function __construct(){
         self::constants();
         self::init();
+        require_once 'functions.php';
     }
 
     public function constants(){

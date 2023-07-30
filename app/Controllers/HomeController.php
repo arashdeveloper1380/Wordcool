@@ -13,7 +13,7 @@ use core\View;
 use core\ValidateSession;
 use core\Session;
 use WCL_User;
-
+use core\AddMenuPage\AddMenuPage;
 
 class HomeController extends Controller{
 
