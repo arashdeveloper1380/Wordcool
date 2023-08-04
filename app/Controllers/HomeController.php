@@ -167,7 +167,10 @@ class HomeController extends Controller{
                       ->orderBy('id','desc')
                       ->where('age', '>', '30')
                       ->get();
-            dd($result);
+
+            // $find = $jsonHandle->find('name','arash')->get();
+            $first = $jsonHandle->where('name', '=', 'arash')->first();
+            dd($first);
 
     }
 

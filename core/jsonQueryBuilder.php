@@ -26,6 +26,11 @@ class JsonQueryBuilder {
         return $this;
     }
 
+    public function find($field, $value)
+    {
+        return $this->where($field, '=', $value);
+    }
+
     public function limit($limit) {
         $this->query['limit'] = $limit;
         return $this;
@@ -60,6 +65,13 @@ class JsonQueryBuilder {
         $data = json_decode($json, true);
         $filteredData = $this->applyQuery($data);
         return count($filteredData) > 0;
+    }
+
+    public function first()
+    {
+        $this->limit(1);
+        $result = $this->get();
+        return !empty($result) ? $result[0] : null;
     }
 
     protected function applyQuery($data)
@@ -121,6 +133,13 @@ class JsonQueryBuilder {
         if (isset($this->query['limit'])) {
             $limit = $this->query['limit'];
             $data = array_slice($data, 0, $limit);
+        }
+
+        if (isset($this->query['find'])) {
+            $findField = $this->query['find']['field'];
+            $findValue = $this->query['find']['value'];
+            
+            $this->where($findField, '=', $findValue);
         }
 
         return $data;
