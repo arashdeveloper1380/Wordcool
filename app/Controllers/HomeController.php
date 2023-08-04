@@ -160,10 +160,24 @@ class HomeController extends Controller{
             ->from('books')
             ->get();
 
-        dd($result);
+            $count = $jsonHandle->count();
+
+            $result = $jsonHandle->select(['id', 'name', 'age'])
+                      ->from('users')
+                      ->orderBy('id','desc')
+                      ->where('age', '>', '30')
+                      ->get();
+            dd($result);
+
     }
 
     public function delete($id){
-        dd($id);
+
+        $sample = Sample::query()->find($id);
+        $sample->delete();
+
+        $session = Session::getInstance();
+        $session->set('success', 'User has Deleted');
+        redirectBack();
     }
 }

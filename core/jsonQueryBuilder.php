@@ -1,4 +1,5 @@
 <?php
+
 namespace core;
 
 class JsonQueryBuilder {
@@ -20,8 +21,8 @@ class JsonQueryBuilder {
         return $this;
     }
 
-    public function where($condation){
-        $this->query['where'] = $condation;
+    public function where($field, $operator, $value){
+        $this->query['where'][] = compact('field', 'operator', 'value');
         return $this;
     }
 
@@ -31,7 +32,7 @@ class JsonQueryBuilder {
     }
 
     public function orderBy($fields, $direction = 'ASC'){
-        $this['order_by'] = [
+        $this->query['order_by'] = [
             'field'         => $fields,
             'direction'     => $direction
         ];
@@ -40,12 +41,25 @@ class JsonQueryBuilder {
 
     public function get() {
         $json = file_get_contents($this->filepath);
-
         $data = json_decode($json, true);
-
         $filteredData = $this->applyQuery($data);
-
         return $filteredData;
+    }
+
+    public function count()
+    {
+        $json = file_get_contents($this->filepath);
+        $data = json_decode($json, true);
+        $filteredData = $this->applyQuery($data);
+        return count($filteredData);
+    }
+
+    public function exists()
+    {
+        $json = file_get_contents($this->filepath);
+        $data = json_decode($json, true);
+        $filteredData = $this->applyQuery($data);
+        return count($filteredData) > 0;
     }
 
     protected function applyQuery($data)
@@ -57,11 +71,39 @@ class JsonQueryBuilder {
             }, $data);
         }
 
-        if (isset($this->query['where'])) {
-            $condition = $this->query['where'];
-            $data = array_filter($data, function ($item) use ($condition) {
-                return eval("return $condition;");
+        if (!empty($this->query['where'])) {
+            $filteredData = array_filter($data, function ($item) {
+                foreach ($this->query['where'] as $condition) {
+                    $field = $condition['field'];
+                    $operator = $condition['operator'];
+                    $value = $condition['value'];
+    
+                    switch ($operator) {
+                        case '=':
+                            if ($item[$field] != $value) {
+                                return false;
+                            }
+                            break;
+                        case '>':
+                            if ($item[$field] <= $value) {
+                                return false;
+                            }
+                            break;
+                        case '<':
+                            if ($item[$field] >= $value) {
+                                return false;
+                            }
+                            break;
+                        // اضافه کردن شرایط دیگر به صورت مشابه
+                        default:
+                            return false;
+                    }
+                }
+    
+                return true;
             });
+    
+            $data = array_values($filteredData);
         }
 
         if (isset($this->query['order_by'])) {
@@ -75,6 +117,7 @@ class JsonQueryBuilder {
                 }
             });
         }
+
         if (isset($this->query['limit'])) {
             $limit = $this->query['limit'];
             $data = array_slice($data, 0, $limit);
@@ -82,5 +125,4 @@ class JsonQueryBuilder {
 
         return $data;
     }
-
 }
