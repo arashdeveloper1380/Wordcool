@@ -33,6 +33,11 @@ $router->get('/', function () {
     $homeController->index();
 });
 
+$router->get('/delete/:id', function ($id) {
+    $homeController = new HomeController();
+    $homeController->delete($id);
+});
+
 $router->post('/save', function () {
     $homeController = new HomeController();
     $homeController->save();

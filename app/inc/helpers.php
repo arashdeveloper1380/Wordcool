@@ -41,6 +41,10 @@ function route($route){
     return home_url() . $route;
 }
 
+function routeWithParam($route, $param = ''){
+    return home_url() . $route . '/' . $param;
+}
+
 function setSession($key, $value){
     $session = core\Session::getInstance();
     $session->set($key, $value);

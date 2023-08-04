@@ -162,4 +162,8 @@ class HomeController extends Controller{
 
         dd($result);
     }
+
+    public function delete($id){
+        dd($id);
+    }
 }
