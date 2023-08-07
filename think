@@ -1,0 +1,109 @@
+<?php
+
+if (php_sapi_name() !== 'cli') {
+    exit(1);
+}
+
+function input() {
+  return fgets(STDIN);
+}
+
+function output($val) {
+    fputs(STDOUT, $val);
+}
+
+function colour($text = '', $colour = null) {
+    $styles = array(
+        'green'  => "\033[0;32m%s\033[0m",
+        'red'    => "\033[31;31m%s\033[0m",
+        'yellow' => "\033[33;33m%s\033[0m",
+        'blue'   => "\033[33;34m%s\033[0m",
+    );
+
+    return sprintf(isset($styles[$colour]) ? $styles[$colour] : "%s", $text);
+}
+
+function cmd($cmd, $input) {
+    $input = trim($input);
+    return substr($input, 0, strlen($cmd)) === $cmd;
+}
+
+function snip($cmd, $input) {
+    return substr($input, strlen($cmd));
+}
+
+function asi($input) {
+    if (trim($input) === '') {
+        return $input;
+    }
+
+    return rtrim($input, "\n;") . ';';
+}
+
+output('PHP Version ' . colour(PHP_VERSION, 'green') . PHP_EOL);
+output('quit:    Exit the REPL' . PHP_EOL);
+output('dump:    Perform a vardump()' . PHP_EOL);
+output('printr:  Perform a print_r()' . PHP_EOL);
+output('exec:    Execute an external program' . PHP_EOL);
+output('>>>:     Start a heredoc of PHP code' . PHP_EOL);
+output('<<<:     End a heredoc of PHP code' . PHP_EOL);
+output('!!!:     Discard a heredoc of PHP code' . PHP_EOL);
+output(PHP_EOL);
+
+$buffer = '';
+$buffering = false;
+
+while (true) {
+    output(colour('> ', $buffering ? 'blue' : 'yellow'));
+
+    $input = input();
+    if (cmd('quit', $input)) {
+        exit;
+    }
+
+    if (cmd('exec', $input)) {
+        exec(snip('exec', $input), $result);
+        $result = trim(implode("\n", $result));
+        if (! empty($result)) {
+            output($result . PHP_EOL);
+        }
+        continue;
+    }
+
+    if (cmd('dump', $input)) {
+        $input = 'var_dump(' . snip('dump', $input) . ');';
+    } elseif (cmd('printr', $input)) {
+        $input = 'print_r(' . snip('printr', $input) . ');';
+    }
+
+    if (cmd('>>>', $input)) {
+        $buffering = true;
+        $input = snip('>>>', $input);
+    } elseif (cmd('<<<', $input)) {
+        if (! $buffering) {
+            continue;
+        }
+
+        $buffering = false;
+        $input = snip('<<<', $input);
+    } elseif (cmd('!!!', $input)) {
+        $buffering = false;
+        $buffer = '';
+        continue;
+    }
+
+    if ($buffering) {
+        $buffer .= $input;
+        continue;
+    }
+
+    if (! empty($buffer)) {
+        $input  = $buffer;
+        $buffer = '';
+    } else {
+        $input = asi($input) . PHP_EOL; 
+    }
+
+    eval($input);
+    output(PHP_EOL);
+}

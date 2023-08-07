@@ -1,19 +1,17 @@
 <?php
-namespace app\Controllers;
+namespace App\Controllers;
 
-include ARASH_DIR . 'init.php';
-include ARASH_DIR . 'app/Models/Sample.php';
 
-use core\jsonQueryBuilder;
-use app\Models\Sample;
-use app\Controllers\Controller;
-use core\Redirect;
-use core\Request;
-use core\View;
-use core\ValidateSession;
-use core\Session;
+use App\Models\Sample;
+use App\Controllers\Controller;
+use Core\Redirect;
+use Core\Request;
+use Core\View;
+use Core\ValidateSession;
+use Core\Session;
+use Core\jsonQueryBuilder;
 use WCL_User;
-use core\AddMenuPage\AddMenuPage;
+use Core\AddMenuPage\AddMenuPage;
 
 class HomeController extends Controller{
 

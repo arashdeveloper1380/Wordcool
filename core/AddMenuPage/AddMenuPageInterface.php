@@ -1,6 +1,6 @@
 <?php
 
-namespace core\AddMenuPage;
+namespace Core\AddMenuPage;
 
 interface AddMenuPageInterface {
 

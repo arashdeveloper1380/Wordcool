@@ -2,5 +2,11 @@
     "require": {
         "illuminate/database": "^10.15",
         "illuminate/view": "^10.16"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/",
+            "Core\\": "Core"
+        }
     }
 }

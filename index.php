@@ -29,6 +29,7 @@ class Boot {
         self::migrations();
 
         include ARASH_DIR . "route.php";
+        include ARASH_DIR . "think";
 //        include ARASH_DIR . "world";
     }
 

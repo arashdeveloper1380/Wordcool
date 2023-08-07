@@ -1,6 +1,6 @@
 <?php
 
-namespace core;
+namespace Core;
 
 include ARASH_DIR . 'app/inc/helpers.php';
 

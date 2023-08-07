@@ -1,17 +1,17 @@
 <?php
 
-include ARASH_DIR . 'core/assets.php';
+include ARASH_DIR . 'Core/assets.php';
 
 function ar_header(){
-    app\Controllers\Controller::headerSection();
+    App\Controllers\Controller::headerSection();
 }
 
 function ar_footer(){
-    app\Controllers\Controller::footerSection();
+    App\Controllers\Controller::footerSection();
 }
 
 function ar_assets($type, $path){
-    core\AssetLoader::load($type, $path);
+    Core\AssetLoader::load($type, $path);
 }
 
 function dd($data){
@@ -26,15 +26,15 @@ function dd($data){
 }
 
 function errors(){
-    core\ValidateSession::showErrors();
+    Core\ValidateSession::showErrors();
 }
 
 function redirectBack(){
-    core\Redirect::back();
+    Core\Redirect::back();
 }
 
 function redirectUrl($url){
-    core\Redirect::url($url);
+    Core\Redirect::url($url);
 }
 
 function route($route){
@@ -46,12 +46,12 @@ function routeWithParam($route, $param = ''){
 }
 
 function setSession($key, $value){
-    $session = core\Session::getInstance();
+    $session = Core\Session::getInstance();
     $session->set($key, $value);
 }
 
 function getSession($key){
-    $session = core\Session::getInstance();
+    $session = Core\Session::getInstance();
 
     if ($session->get($key)) {
         $success = $session->get($key);

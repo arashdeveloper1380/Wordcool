@@ -1,6 +1,6 @@
 <?php
 
-namespace core\User;
+namespace Core\User;
 
 interface UserInterface{
 

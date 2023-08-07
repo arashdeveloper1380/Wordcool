@@ -1,11 +1,9 @@
 <?php
 
-namespace core\AddMenuPage;
+namespace Core\AddMenuPage;
 
-include "AddMenuPageInterface.php";
-
-use core\AddMenuPage\AddMenuPageInterface;
-use core\View;
+use Core\AddMenuPage\AddMenuPageInterface;
+use Core\View;
 
 class AddMenuPage implements AddMenuPageInterface{
 
