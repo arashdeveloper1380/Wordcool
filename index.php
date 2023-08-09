@@ -4,8 +4,6 @@
  * Plugin Name: Arash Framework
 */
 
-use Corcel\Model\Post;
-
 require_once 'vendor/autoload.php';
 
 class Boot {
@@ -28,6 +26,7 @@ class Boot {
 
         include ARASH_DIR . "routes/route.php";
         include ARASH_DIR . "Config/database.php";
+        include ARASH_DIR . "functions.php";
         
     }
     public function activePlugin(){

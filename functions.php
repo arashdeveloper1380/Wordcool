@@ -2,22 +2,37 @@
 
 use Core\AddMenuPage\AddMenuPage;
 use Core\View;
+use App\Controllers\MenuPageController;
+use Core\Request;
 
-add_action('init', function(){
+class MenuInitializer
+{
+    public function init()
+    {
+        $menu_page = new AddMenuPage(
+            'My Page Title',
+            'My Menu Title',
+            'manage_options',
+            'my-menu-slug',
+            [$this, 'menuPageCallback']
+        );
+        $menu_page->add();
+    }
 
-    $menu_page = new AddMenuPage(
-        'My Page Title',
-        'My Menu Title',
-        'manage_options',
-        'my-menu-slug',
-        function() {
-            $menuPage = new \App\Controllers\MenuPageController();
-            $menuPage->index();
-            $request = new \core\Request();
-            if($request->get('action') == 'delete'){
-                $menuPage->destroy();
-            }
+    public function menuPageCallback()
+    {
+        $menuPageController = new MenuPageController();
+        $menuPageController->index();
+        
+        $request = new Request();
+        if ($request->get('action') == 'delete') {
+            $menuPageController->destroy();
         }
-    );
-    $menu_page->add();
+    }
+}
+
+// Usage
+add_action('init', function() {
+    $menuInitializer = new MenuInitializer();
+    $menuInitializer->init();
 });
