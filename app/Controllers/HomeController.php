@@ -1,17 +1,15 @@
 <?php
 namespace App\Controllers;
 
-
 use App\Models\Sample;
-use App\Controllers\Controller;
+use Corcel\Model\Post;
+use Core\JsonQueryBuilder;
 use Core\Redirect;
 use Core\Request;
-use Core\View;
-use Core\ValidateSession;
 use Core\Session;
-use Core\jsonQueryBuilder;
-use WCL_User;
-use Core\AddMenuPage\AddMenuPage;
+use Core\User\WCL_User;
+use Core\ValidateSession;
+use Core\View;
 
 class HomeController extends Controller{
 

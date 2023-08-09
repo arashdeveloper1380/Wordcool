@@ -2,8 +2,6 @@
 
 namespace Core;
 
-include ARASH_DIR . 'app/inc/helpers.php';
-
 use Exception;
 use Illuminate\View\Factory;
 use Illuminate\View\FileViewFinder;

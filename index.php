@@ -4,6 +4,8 @@
  * Plugin Name: Arash Framework
 */
 
+use Corcel\Model\Post;
+
 require_once 'vendor/autoload.php';
 
 class Boot {
@@ -11,7 +13,6 @@ class Boot {
     public function __construct(){
         self::constants();
         self::init();
-        require_once 'functions.php';
     }
 
     public function constants(){
@@ -25,25 +26,10 @@ class Boot {
         register_activation_hook(__FILE__, [$this, 'activePlugin']);
         register_deactivation_hook(__FILE__, [$this, 'deactivePlugin']);
 
-        self::configDatabase();
-        self::migrations();
-
-        include ARASH_DIR . "route.php";
-        include ARASH_DIR . "think";
-//        include ARASH_DIR . "world";
+        include ARASH_DIR . "routes/route.php";
+        include ARASH_DIR . "Config/database.php";
+        
     }
-
-    public function configDatabase(){
-        include ARASH_CONFIG . 'database.php';
-    }
-
-    public function migrations(){
-        $sample = self::tables('sample')['sample'];
-        $tablePureName = str_replace('wp_', '', $sample);
-
-        self::existTable($tablePureName);
-    }
-
     public function activePlugin(){
 
     }
@@ -51,34 +37,6 @@ class Boot {
     public function deactivePlugin(){
         
     }
-
-    public function tables($table){
-        global $wpdb;
-        $table = $wpdb->prefix;
-
-        return [
-            'sample' => "{$table}sample"
-        ];
-    }
-
-    public function existTable($table){
-        global $wpdb;
-
-        $tableName = ucfirst($table);
-        $migrationName = "Create{$tableName}Table";
-
-        $table_name = $wpdb->prefix . $table;
-
-        $table_exists = $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) == $table_name;
-
-        if (!$table_exists ) {
-            include ARASH_MIGRATIONS . "create_{$table}_table.php";
-            (new $migrationName())->up();
-        } else {
-            return;
-        }
-    }
-
 }
 
 new Boot;

@@ -2,9 +2,9 @@
 namespace App\Controllers;
 
 use App\Controllers\Controller;
-use app\Models\Sample;
-use core\Request;
-use core\View;
+use App\Models\Sample;
+use Core\Request;
+use Core\View;
 
 class MenuPageController extends Controller
 {

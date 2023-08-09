@@ -1,9 +1,7 @@
 <?php
 
-include "App/Controllers/MenuPageController.php";
-
-use core\AddMenuPage\AddMenuPage;
-use core\View;
+use Core\AddMenuPage\AddMenuPage;
+use Core\View;
 
 add_action('init', function(){
 

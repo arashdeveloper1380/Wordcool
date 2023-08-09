@@ -21,6 +21,10 @@ class ComposerStaticInitd4573e82b1f97ece6a84e8b1f5a09d88
         array (
             'voku\\' => 5,
         ),
+        'T' => 
+        array (
+            'Thunder\\Shortcode\\' => 18,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Php80\\' => 23,
@@ -46,6 +50,10 @@ class ComposerStaticInitd4573e82b1f97ece6a84e8b1f5a09d88
             'Illuminate\\Container\\' => 21,
             'Illuminate\\Bus\\' => 15,
         ),
+        'F' => 
+        array (
+            'Faker\\' => 6,
+        ),
         'D' => 
         array (
             'Doctrine\\Inflector\\' => 19,
@@ -53,6 +61,8 @@ class ComposerStaticInitd4573e82b1f97ece6a84e8b1f5a09d88
         'C' => 
         array (
             'Core\\' => 5,
+            'Corcel\\Tests\\' => 13,
+            'Corcel\\' => 7,
             'Carbon\\' => 7,
         ),
         'B' => 
@@ -69,6 +79,10 @@ class ComposerStaticInitd4573e82b1f97ece6a84e8b1f5a09d88
         'voku\\' => 
         array (
             0 => __DIR__ . '/..' . '/voku/portable-ascii/src/voku',
+        ),
+        'Thunder\\Shortcode\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/thunderer/shortcode/src',
         ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (
@@ -137,6 +151,10 @@ class ComposerStaticInitd4573e82b1f97ece6a84e8b1f5a09d88
         array (
             0 => __DIR__ . '/..' . '/illuminate/bus',
         ),
+        'Faker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fakerphp/faker/src/Faker',
+        ),
         'Doctrine\\Inflector\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector',
@@ -144,6 +162,14 @@ class ComposerStaticInitd4573e82b1f97ece6a84e8b1f5a09d88
         'Core\\' => 
         array (
             0 => __DIR__ . '/../..' . '/Core',
+        ),
+        'Corcel\\Tests\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jgrossi/corcel/tests',
+        ),
+        'Corcel\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jgrossi/corcel/src',
         ),
         'Carbon\\' => 
         array (
@@ -156,6 +182,16 @@ class ComposerStaticInitd4573e82b1f97ece6a84e8b1f5a09d88
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/App',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'H' => 
+        array (
+            'Hautelook' => 
+            array (
+                0 => __DIR__ . '/..' . '/bordoni/phpass/src',
+            ),
         ),
     );
 
@@ -173,6 +209,7 @@ class ComposerStaticInitd4573e82b1f97ece6a84e8b1f5a09d88
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitd4573e82b1f97ece6a84e8b1f5a09d88::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitd4573e82b1f97ece6a84e8b1f5a09d88::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitd4573e82b1f97ece6a84e8b1f5a09d88::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitd4573e82b1f97ece6a84e8b1f5a09d88::$classMap;
 
         }, null, ClassLoader::class);

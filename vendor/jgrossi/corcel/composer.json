@@ -1,0 +1,48 @@
+{
+    "name": "jgrossi/corcel",
+    "replace": { "juniorgrossi/corcel": "self.version" },
+    "description": "Use WordPress backend with Laravel or any PHP framework",
+    "homepage": "http://github.com/corcel/corcel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Junior Grossi",
+            "email": "juniorgro@gmail.com",
+            "homepage": "http://jgrossi.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1.0",
+        "illuminate/database": "^10.0",
+        "illuminate/filesystem": "^10.0",
+        "illuminate/support": "^10.0",
+        "fakerphp/faker": "^1.19",
+        "bordoni/phpass": "0.3.*",
+        "thunderer/shortcode": "^0.7.3"
+    },
+    "require-dev": {
+        "laravel/legacy-factories": "^1.0",
+        "orchestra/testbench": "^8.0",
+        "symfony/thanks": "^1.0",
+        "mockery/mockery": "^1.4.4",
+        "dms/phpunit-arraysubset-asserts": "^0.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Corcel\\": "src/",
+            "Corcel\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Corcel\\Laravel\\CorcelServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "symfony/thanks": true
+        }
+    }
+}
