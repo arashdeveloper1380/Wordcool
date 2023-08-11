@@ -2,7 +2,7 @@
 
 use App\Controllers\HomeController;
 
-$router = new Core\Router('/arash-framework');
+$router = new Core\Router\Router('/arash-framework');
 
 //  \?id=.*         =>      send Parametr [product?id=33]
 //  :id             =>      product/2

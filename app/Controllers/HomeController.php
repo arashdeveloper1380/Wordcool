@@ -3,19 +3,20 @@ namespace App\Controllers;
 
 use App\Models\Sample;
 use Corcel\Model\Post;
-use Core\JsonQueryBuilder;
-use Core\Redirect;
-use Core\Request;
-use Core\Session;
+use Core\JsonQueryBuilder\JsonQueryBuilder;
+use Core\Redirect\Redirect;
+use Core\Request\Request;
+use Core\Session\Session;
 use Core\User\WCL_User;
-use Core\ValidateSession;
-use Core\View;
+use Core\ValidateSession\ValidateSession;
+use Core\View\View;
+use Illuminate\Database\Capsule\Manager as DB;
 
 class HomeController extends Controller{
 
     public function index(){
         $samples = Sample::query()->orderByDesc('id','desc')->get();
-        View::renderBlade('index',compact('samples'));
+        return view('index', compact('samples'));
     }
 
     public function save(){

@@ -1,6 +1,6 @@
 <?php
 
-namespace Core;
+namespace Core\View;
 
 use Exception;
 use Illuminate\View\Factory;
@@ -13,21 +13,6 @@ use Illuminate\Filesystem\Filesystem;
 class View
 {
     private static $viewFactory;
-
-    public static function render($view, $data = [])
-    {
-        $viewPath = ARASH_DIR . 'resources/' . str_replace('.', '/', $view) . '.php';
-
-        if (file_exists($viewPath)) {
-            if (isset($data) && is_array($data)) {
-                extract($data);
-            }
-            require $viewPath;
-        } else {
-            throw new Exception('File not found: ' . $viewPath);
-        }
-    }
-
     public static function renderBlade($view, $data = [])
     {
         if (!isset(self::$viewFactory)) {

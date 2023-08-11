@@ -1,5 +1,5 @@
 <?php
-namespace Core;
+namespace Core\Assets;
 
 class AssetLoader {
 
