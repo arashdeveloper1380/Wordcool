@@ -23,6 +23,19 @@ class Init
 
     public function menuPageCallback()
     {
+        // $capabilities = array(
+        //     'edit_posts',
+        //     'delete_posts'
+        // );
+        // if (Admin::authorCan($capabilities)) {
+        //     echo "true";
+        // } else {
+        //     echo "false";
+        // }
+        // $role = Admin::getRole('editor');
+        // foreach ($role->capabilities as $capability => $value) {
+        //     echo $capability . '<br>';
+        // }
         
         $menuPageController = new MenuPageController();
         $menuPageController->index();
@@ -41,6 +54,19 @@ class Init
     public function hasCap(){
         var_dump(Admin::hasCap('editor', 'custom_edit'));
     }
+
+    // add Role
+    public function addRole(){
+        Admin::addRole('employer', 'employer', [
+            'read'          => true,
+            'edit_posts'    => false,
+            'delete_posts'  => false,
+        ]);
+    }
+
+    public function authorCan(){
+        Admin::authorCan('edit_posts');
+    }
 }
 
 // Usage
@@ -49,5 +75,9 @@ add_action('init', function() {
 
     $init->menuPage();
     $init->addCap();
+
+    $init->addRole();
+
+    $init->authorCan();
     
 });
