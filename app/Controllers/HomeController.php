@@ -33,6 +33,7 @@ class HomeController extends Controller{
         if(!empty($errors)){
             $errors = ValidateSession::setErrors($errors);
             Redirect::back(); // or redirectBack()
+            flash()->addSuccess('Your payment was processed successfully.');
         } else {
             $name = $request->post('name');
             $phone = $request->post('phone');

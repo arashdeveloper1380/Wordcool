@@ -26,7 +26,7 @@ class Boot {
 
         include ARASH_DIR . "routes/route.php";
         include ARASH_DIR . "Config/database.php";
-        include ARASH_DIR . "functions.php";
+        include ARASH_DIR . "init.php";
         
     }
     public function activePlugin(){

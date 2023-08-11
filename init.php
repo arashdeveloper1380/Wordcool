@@ -3,11 +3,13 @@
 use Core\AddMenuPage\AddMenuPage;
 use Core\View;
 use App\Controllers\MenuPageController;
-use Core\Request;
+use Core\Admin\Admin;
+use Core\Request\Request;
 
-class MenuInitializer
+class Init
 {
-    public function init()
+    // Admin Menu Page
+    public function menuPage()
     {
         $menu_page = new AddMenuPage(
             'My Page Title',
@@ -21,6 +23,7 @@ class MenuInitializer
 
     public function menuPageCallback()
     {
+        
         $menuPageController = new MenuPageController();
         $menuPageController->index();
         
@@ -29,10 +32,22 @@ class MenuInitializer
             $menuPageController->destroy();
         }
     }
+
+    // Add Cap in Role
+    public function addCap(){
+        Admin::addCap('editor','custom_edit');
+    }
+    // has Cap in Role
+    public function hasCap(){
+        var_dump(Admin::hasCap('editor', 'custom_edit'));
+    }
 }
 
 // Usage
 add_action('init', function() {
-    $menuInitializer = new MenuInitializer();
-    $menuInitializer->init();
+    $init = new Init();
+
+    $init->menuPage();
+    $init->addCap();
+    
 });

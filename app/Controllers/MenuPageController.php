@@ -3,8 +3,7 @@ namespace App\Controllers;
 
 use App\Controllers\Controller;
 use App\Models\Sample;
-use Core\Request;
-use Core\View;
+use Core\Request\Request;
 
 class MenuPageController extends Controller
 {
@@ -12,7 +11,8 @@ class MenuPageController extends Controller
     public function index(){
         $name = "کاربران";
         $sample = Sample::query()->orderByDesc('id')->get();
-        View::renderBlade('test', compact('name','sample'));
+        return view('test', compact('name', 'sample'));
+        // View::renderBlade('test', compact('name','sample'))
     }
 
     public function destroy()
