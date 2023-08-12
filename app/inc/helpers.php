@@ -5,18 +5,6 @@ use Illuminate\Database\Capsule\Manager as DB;
 
 include ARASH_DIR . 'Core/Assets/Assets.php';
 
-if(!function_exists('ar_header')){
-    function ar_header(){
-        App\Controllers\Controller::headerSection();
-    }
-}
-
-if(!function_exists('ar_footer')){
-    function ar_footer(){
-        App\Controllers\Controller::footerSection();
-    }
-    
-}
 if(!function_exists('ar_assets')){
     function ar_assets($type, $path){
         Core\Assets\AssetLoader::load($type, $path);

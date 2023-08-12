@@ -33,7 +33,6 @@ class HomeController extends Controller{
         if(!empty($errors)){
             $errors = ValidateSession::setErrors($errors);
             Redirect::back(); // or redirectBack()
-            flash()->addSuccess('Your payment was processed successfully.');
         } else {
             $name = $request->post('name');
             $phone = $request->post('phone');
@@ -90,8 +89,11 @@ class HomeController extends Controller{
         $delete_user = WCL_User::deleteUser($id);
         if($delete_user){
             $session = Session::getInstance();
-            $session->set('success', 'User deleted successful');
-            redirectUrl(route('/'));
+            // $session->set('success', 'User deleted successful');
+            // redirectUrl(route('/'));
+
+            echo json_encode(['success' => 'created successful']);
+            exit();
         }
     }
 

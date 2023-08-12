@@ -3,6 +3,17 @@
 @section('content')
     <p style="text-align: center;">this is index blade page</p>
 
+    <form action="{{ route('/save') }}" name="save" method="POST">
+
+        <label for="name">First name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="name">phone:</label><br>
+        <input type="text" id="phone" name="phone"><br>
+        <input type="submit" value="Submit">
+
+    </form>
+    <br><br>
+
     <table id="table">
         <tr>
             <th>نام</th>
@@ -14,7 +25,9 @@
                 <tr>
                     <td>{{ $value->name }}</td>
                     <td>{{ $value->phone }}</td>
-                    <td><a href="{{ routeWithParam('/delete', $value->id) }}">حذف</a></td>
+                    <td>
+                        <a href="{{ routeWithParam('/delete', $value->id) }}">حذف</a>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
@@ -27,13 +40,4 @@
         <h3>{{ getSession('success') }} </h3>
     @endif
 
-    <form action="{{ route('/save') }} " name="save" method="post">
-
-        <label for="name">First name:</label><br>
-        <input type="text" id="name" name="name"><br>
-        <label for="name">phone:</label><br>
-        <input type="text" id="phone" name="phone"><br>
-        <input type="submit" value="Submit">
-
-    </form>
 @endsection
