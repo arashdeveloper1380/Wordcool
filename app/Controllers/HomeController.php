@@ -3,6 +3,7 @@ namespace App\Controllers;
 
 use App\Models\Sample;
 use Corcel\Model\Post;
+use Core\Csrf\Csrf;
 use Core\JsonQueryBuilder\JsonQueryBuilder;
 use Core\Redirect\Redirect;
 use Core\Request\Request;
@@ -33,7 +34,9 @@ class HomeController extends Controller{
         if(!empty($errors)){
             $errors = ValidateSession::setErrors($errors);
             Redirect::back(); // or redirectBack()
-        } else {
+        }
+        $csrf = new Csrf();
+        if($csrf->validateToken()){
             $name = $request->post('name');
             $phone = $request->post('phone');
 
@@ -44,8 +47,9 @@ class HomeController extends Controller{
 
             $session->set('success', 'created successful');
             redirectBack(); // or Redirect::back()
-            
         }
+        
+            
     }
 
     public function createUser(){

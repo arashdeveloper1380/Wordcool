@@ -4,7 +4,7 @@
     <p style="text-align: center;">this is index blade page</p>
 
     <form action="{{ route('/save') }}" name="save" method="POST">
-
+        @php csrf() @endphp
         <label for="name">First name:</label><br>
         <input type="text" id="name" name="name"><br>
         <label for="name">phone:</label><br>

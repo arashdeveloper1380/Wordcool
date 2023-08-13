@@ -1,5 +1,6 @@
 <?php
 
+use Core\Csrf\Csrf;
 use Core\View\View;
 use Illuminate\Database\Capsule\Manager as DB;
 
@@ -75,7 +76,7 @@ if(!function_exists('getSession')){
     }
 }
 
-if(!function_exists('getSession')){
+if(!function_exists('createUser')){
     function createUser($username,  $meail, $password){
         return AR_User::createUser($username,  $meail, $password);
     }
@@ -90,5 +91,12 @@ if(!function_exists('view')){
 if(!function_exists('db')){
     function db(){
         return new DB;
+    }
+}
+
+if(!function_exists('csrf')){
+    function csrf(){
+        $csrf = new Csrf();
+        $csrf->generateToken();
     }
 }

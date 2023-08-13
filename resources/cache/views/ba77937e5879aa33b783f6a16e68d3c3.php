@@ -2,7 +2,7 @@
     <p style="text-align: center;">this is index blade page</p>
 
     <form action="<?php echo e(route('/save')); ?>" name="save" method="POST">
-
+        <?php csrf() ?>
         <label for="name">First name:</label><br>
         <input type="text" id="name" name="name"><br>
         <label for="name">phone:</label><br>
