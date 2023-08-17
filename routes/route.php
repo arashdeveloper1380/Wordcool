@@ -1,5 +1,11 @@
 <?php
 
+require_once ARASH_DIR . 'vendor/autoload.php';
+
+use Tracy\Debugger;
+
+Debugger::enable();
+
 use App\Controllers\HomeController;
 
 $router = new Core\Router\Router('/arash-framework');

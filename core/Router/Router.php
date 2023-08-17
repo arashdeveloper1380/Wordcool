@@ -2,6 +2,11 @@
 
 namespace Core\Router;
 
+use Faker\Extension\ExtensionNotFound;
+use Tracy\Debugger;
+
+Debugger::enable();
+
 class Router {
 
     private $routes = array();
@@ -41,7 +46,9 @@ class Router {
     public function dispatch() {
         $uri = $_SERVER['REQUEST_URI'];
         $method = $_SERVER['REQUEST_METHOD'];
+        $found = false;
 
+        
         foreach ($this->routes as $route) {
             if ($route['method'] != $method) {
                 continue;
@@ -51,11 +58,15 @@ class Router {
             if (preg_match($pattern, $uri, $matches)) {
                 array_shift($matches);
                 call_user_func_array($route['handler'], $matches);
+                $found = true;
                 return true;
             }
         }
-
+        if (!$found) {
+            echo 'Route not found';
+        }
         return false;
+        
     }
 
 }

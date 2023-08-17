@@ -1,7 +1,8 @@
 {
     "require": {
         "illuminate/view": "^10.16",
-        "jgrossi/corcel": "^7.0"
+        "jgrossi/corcel": "^7.0",
+        "tracy/tracy": "^2.10"
     },
     "autoload": {
         "psr-4": {

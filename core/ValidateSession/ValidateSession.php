@@ -4,12 +4,10 @@ namespace Core\ValidateSession;
 class ValidateSession{
 
     public static function setErrors($errors){
-        session_start();
         $_SESSION['errors'] = $errors;
     }
 
     public static function getErrors(){
-        session_start();
         if (isset($_SESSION['errors'])) {
             $errors = $_SESSION['errors'];
             unset($_SESSION['errors']);

@@ -4,8 +4,6 @@
  * Plugin Name: Arash Framework
 */
 
-require_once 'vendor/autoload.php';
-
 class Boot {
 
     public function __construct(){

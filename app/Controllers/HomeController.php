@@ -16,9 +16,7 @@ use Illuminate\Database\Capsule\Manager as DB;
 class HomeController extends Controller{
 
     public function index(){
-        
         $samples = Sample::query()->orderByDesc('id','desc')->get();
-        dd($samples);
         return view('index', compact('samples'));
     }
 
