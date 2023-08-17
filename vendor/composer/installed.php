@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'f543d9d639060778bb830c25e0ab1c888cf5787f',
+        'reference' => 'f6b819360de644ce3d2c0d88f8c70c867636f07b',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'f543d9d639060778bb830c25e0ab1c888cf5787f',
+            'reference' => 'f6b819360de644ce3d2c0d88f8c70c867636f07b',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -276,6 +276,15 @@
             'provided' => array(
                 0 => '2.3|3.0',
             ),
+        ),
+        'symfony/var-dumper' => array(
+            'pretty_version' => 'v6.3.3',
+            'version' => '6.3.3.0',
+            'reference' => '77fb4f2927f6991a9843633925d111147449ee7a',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/var-dumper',
+            'aliases' => array(),
+            'dev_requirement' => true,
         ),
         'thunderer/shortcode' => array(
             'pretty_version' => 'v0.7.5',

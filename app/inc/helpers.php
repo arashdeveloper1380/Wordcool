@@ -1,11 +1,13 @@
 <?php
 
+include ARASH_DIR . 'Core/Assets/Assets.php';
+
 use Core\Admin\Admin;
 use Core\Csrf\Csrf;
 use Core\View\View;
 use Illuminate\Database\Capsule\Manager as DB;
 
-include ARASH_DIR . 'Core/Assets/Assets.php';
+
 
 if(!function_exists('ar_assets')){
     function ar_assets($type, $path){
@@ -15,15 +17,8 @@ if(!function_exists('ar_assets')){
 }
 
 if(!function_exists('dd')){
-    function dd($data){
-        ini_set("highlight.comment", "#969896; font-style: italic");
-        ini_set("highlight.default", "#FFFFFF");
-        ini_set("highlight.html", "#D16568");
-        ini_set("highlight.keyword", "#7FA3BC; font-weight: bold");
-        ini_set("highlight.string", "#F2C47E");
-        $output = highlight_string("<?php\n\n" . var_export($data, true), true);
-        echo "<div style=\"background-color: #1C1E21; padding: 1rem\">{$output}</div>";
-        die();
+    function dd($value){
+        dump($value);
     }
 }
 
