@@ -70,6 +70,7 @@ class Init
 }
 
 // Usage
+
 add_action('init', function() {
     $init = new Init();
 
@@ -79,5 +80,4 @@ add_action('init', function() {
     $init->addRole();
 
     $init->authorCan();
-    
 });

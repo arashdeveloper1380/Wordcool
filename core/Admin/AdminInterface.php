@@ -18,7 +18,7 @@ interface AdminInterface {
 
     public static function removeRole($role_name);
 
-    public function removeCap($role_name, $capability);
+    public static function removeCap($role_name, $capability);
 
     public static function isSuperAdmin($user_id);
 

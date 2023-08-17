@@ -4,5 +4,3 @@ $config = [
     'DB_USERNAME'   => 'root',
     'DB_PASSWORD'   => ''
 ];
-
-return $config;

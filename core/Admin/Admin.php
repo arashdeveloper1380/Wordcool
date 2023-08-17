@@ -74,7 +74,7 @@ class Admin implements AdminInterface{
         }
     }
 
-    public function removeCap($role_name, $capability){ 
+    public static function removeCap($role_name, $capability){ 
         $role = get_role($role_name);
         if ($role) {
             $role->remove_cap($capability);

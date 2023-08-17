@@ -12,11 +12,9 @@ class MenuPageController extends Controller
         $name = "کاربران";
         $sample = Sample::query()->orderByDesc('id')->get();
         return view('test', compact('name', 'sample'));
-        // View::renderBlade('test', compact('name','sample'))
     }
 
-    public function destroy()
-    {
+    public function destroy(){
         $request = new Request();
         dd($request->all());
     }

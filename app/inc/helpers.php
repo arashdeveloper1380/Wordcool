@@ -1,5 +1,6 @@
 <?php
 
+use Core\Admin\Admin;
 use Core\Csrf\Csrf;
 use Core\View\View;
 use Illuminate\Database\Capsule\Manager as DB;
@@ -98,5 +99,65 @@ if(!function_exists('csrf')){
     function csrf(){
         $csrf = new Csrf();
         $csrf->generateToken();
+    }
+}
+
+if(!function_exists('addCup')){
+    function addCup($role, $cap){
+        return Admin::addCap($role, $cap);
+    }
+}
+
+if(!function_exists('addCup')){
+    function hasCap($role, $cap){
+        return Admin::hasCap($role, $cap);
+    }
+}
+
+if(!function_exists('addRole')){
+    function addRole($role_name, $display_name, $capabilities = []){
+        return Admin::addRole($role_name, $display_name, $capabilities);
+    }
+}
+
+if(!function_exists('authorCan')){
+    function authorCan($capabilities){
+        return Admin::authorCan($capabilities);
+    }
+}
+
+if(!function_exists('getCapRole')){
+    function getCapRole($role_name){
+        return Admin::getCapRole($role_name);
+    }
+}
+
+if(!function_exists('getRole')){
+    function getRole($role_name){
+        return Admin::getRole($role_name);
+    }
+}
+
+if(!function_exists('removeRole')){
+    function removeRole($role_name){
+        return Admin::removeRole($role_name);
+    }
+}
+
+if(!function_exists('removeRole')){
+    function removeCap($role_name, $capability){
+        return Admin::removeCap($role_name, $capability);
+    }
+}
+
+if(!function_exists('getSuperAdmins')){
+    function getSuperAdmins(){
+        return Admin::getSuperAdmins();
+    }
+}
+
+if(!function_exists('isSuperAdmin')){
+    function isSuperAdmin($user_id){
+        return Admin::isSuperAdmin($user_id);
     }
 }
