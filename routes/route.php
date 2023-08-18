@@ -5,6 +5,7 @@ require_once ARASH_DIR . 'vendor/autoload.php';
 use Tracy\Debugger;
 
 Debugger::enable();
+Debugger::$showBar = false;
 
 use App\Controllers\HomeController;
 

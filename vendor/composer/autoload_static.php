@@ -40,6 +40,7 @@ class ComposerStaticInitd4573e82b1f97ece6a84e8b1f5a09d88
         array (
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Container\\' => 14,
+            'Psr\\Clock\\' => 10,
         ),
         'I' => 
         array (
@@ -118,6 +119,10 @@ class ComposerStaticInitd4573e82b1f97ece6a84e8b1f5a09d88
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'Psr\\Clock\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/clock/src',
         ),
         'Illuminate\\View\\' => 
         array (

@@ -5,8 +5,7 @@ class Session
 {
     private static $instance;
 
-    private function __construct()
-    {
+    private function __construct() {
         session_start();
     }
 
