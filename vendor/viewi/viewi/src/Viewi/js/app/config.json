@@ -1,0 +1,16 @@
+{
+    "includes": [
+        "copyright.js",
+        "module.js",
+        "VIEWI_ROUTER",
+        "component.js",
+        "BUNDLE",
+        "VIEWI_PATH",
+        "VIEWI_VERSION",
+        "renderer.js",
+        "ajax.js",
+        "arrayExtensions.js",
+        "viewi.js",
+        "app.js"
+    ]
+}

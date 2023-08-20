@@ -3,6 +3,8 @@
 require_once ARASH_DIR . 'vendor/autoload.php';
 
 use Tracy\Debugger;
+use Leaf\UI;
+use App\UI\Test;
 
 Debugger::enable();
 Debugger::$showBar = false;

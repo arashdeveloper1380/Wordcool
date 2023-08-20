@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ef4e93c891111ebf07a3aa8705349005",
+    "content-hash": "faf03b0377cc27ace1a9589094427c80",
     "packages": [
         {
             "name": "bordoni/phpass",
@@ -1860,6 +1860,65 @@
                 "source": "https://github.com/nette/tracy/tree/v2.10.3"
             },
             "time": "2023-07-30T13:56:20+00:00"
+        },
+        {
+            "name": "viewi/viewi",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/viewi/viewi.git",
+                "reference": "542341e24a37b78f79c534bef1c1fc4d82122bec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/viewi/viewi/zipball/542341e24a37b78f79c534bef1c1fc4d82122bec",
+                "reference": "542341e24a37b78f79c534bef1c1fc4d82122bec",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ctype": "*",
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-zlib": "*",
+                "php": "^7.4 || ^8.0"
+            },
+            "bin": [
+                "bin/viewi"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Viewi\\": "src/Viewi/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Voitovych",
+                    "email": "col606v@gmail.com"
+                }
+            ],
+            "description": "Powerful tool for building progressive and completely reactive web applications",
+            "keywords": [
+                "reactive",
+                "template",
+                "ui",
+                "viewi"
+            ],
+            "support": {
+                "issues": "https://github.com/viewi/viewi/issues",
+                "source": "https://github.com/viewi/viewi/tree/v1.0.3"
+            },
+            "funding": [
+                {
+                    "url": "https://www.buymeacoffee.com/ivan.v",
+                    "type": "custom"
+                }
+            ],
+            "time": "2023-04-27T12:39:53+00:00"
         },
         {
             "name": "voku/portable-ascii",

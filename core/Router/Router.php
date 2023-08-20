@@ -48,6 +48,10 @@ class Router {
         $method = $_SERVER['REQUEST_METHOD'];
         $found = false;
 
+        if (strpos($uri, 'wp-login') == true || strpos($uri, 'wp-admin') == true) {
+            return false;
+        }
+
         
         foreach ($this->routes as $route) {
             if ($route['method'] != $method) {

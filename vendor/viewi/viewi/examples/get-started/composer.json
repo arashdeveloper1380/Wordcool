@@ -1,0 +1,14 @@
+{
+    "name": "ivan/get-started",
+    "description": "get started",
+    "require": {
+        "viewi/viewi": "dev-master"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ivan Voitovych"
+        }
+    ],
+    "minimum-stability": "dev"
+}

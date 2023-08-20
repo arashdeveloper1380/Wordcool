@@ -23,6 +23,10 @@ class ComposerStaticInitd4573e82b1f97ece6a84e8b1f5a09d88
         array (
             'voku\\' => 5,
         ),
+        'V' => 
+        array (
+            'Viewi\\' => 6,
+        ),
         'T' => 
         array (
             'Thunder\\Shortcode\\' => 18,
@@ -83,6 +87,10 @@ class ComposerStaticInitd4573e82b1f97ece6a84e8b1f5a09d88
         'voku\\' => 
         array (
             0 => __DIR__ . '/..' . '/voku/portable-ascii/src/voku',
+        ),
+        'Viewi\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/viewi/viewi/src/Viewi',
         ),
         'Thunder\\Shortcode\\' => 
         array (
